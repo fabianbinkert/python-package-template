@@ -1,3 +1,18 @@
 [build-system]
-requires = ["flit_core>=3.4"]
+requires = ["flit_core>=3.4"] # list of packages that are needed to build my package
 build-backend = "flit_core.buildapi"
+
+[project]
+name = "example_package_binkertf"
+version = "0.0.1"
+authors = [
+  { name="Fabian Binkert", email="fabian.binkert@tngtech.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
