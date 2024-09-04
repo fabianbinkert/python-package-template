@@ -1,3 +1,3 @@
-# Example Package
+# Python Package Template
 
-This is a simple example python package.
+This repository provides a basic template for creating a Python package.
