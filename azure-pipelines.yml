@@ -10,10 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  twineUsername: $(twineUsername)
-  twinePassword: $(twinePassword)
-  repoUrl: $(repoUrl)
-  SecretTwo: $(SecretTwo)
+  secretTwo: $(SecretTwo)
 
 
 
