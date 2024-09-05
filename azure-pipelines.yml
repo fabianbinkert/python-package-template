@@ -26,6 +26,11 @@ steps:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
 
+- bash: |
+    echo "My secret variable: $FOO_TWO"
+  env:
+    FOO_TWO: $(SecretTwo)
+
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
