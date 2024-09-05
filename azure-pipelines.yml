@@ -28,3 +28,17 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+
+- script: |
+    pip install build
+    python -m build
+  displayName: 'Build Python Package'
+
+- script: |
+    pip install twine
+    twine upload --repository-url $(REPO_URL) -u $(TWINE_USERNAME) -p $(TWINE_PASSWORD) dist/*
+  displayName: 'Upload Package to Feed'
+  env:
+    REPO_URL: $(repoUrl)
+    TWINE_USERNAME: $(twineUsername)
+    TWINE_PASSWORD: $(twinePassword)
