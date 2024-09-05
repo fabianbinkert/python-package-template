@@ -20,10 +20,6 @@ steps:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
 
-- bash: |
-    echo "My non-secret variable: $(SecretOne)"
-    echo "My secret variable: $(SecretTwo)"
-
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
@@ -41,7 +37,9 @@ steps:
 
 - script: |
     pip install twine
-    twine upload --repository-url https://pkgs.dev.azure.com/binkertf/DevOpsPlayground/_packaging/PlaygroundFeed/pypi/upload/ -u PlaygroundFeed -p $env:TWINE_PASSWORD dist/*
+    twine upload --repository-url $REPO_URL: -u $USERNAME -p $TWINE_PASSWORD dist/*
   displayName: 'Upload Package to Feed'
   env:
+    REPO_URL: $(repoUrl)
+    USERNAME: $(twineUsername)
     TWINE_PASSWORD: $(twinePassword)
