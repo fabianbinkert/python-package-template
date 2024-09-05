@@ -8,6 +8,13 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+
+variables:
+  twineUsername: $(twineUsername)
+  twinePassword: $(twinePassword)
+  repoUrl: $(repoUrl)
+
+
 strategy:
   matrix:
     Python37:
@@ -36,8 +43,9 @@ steps:
 
 - script: |
     pip install twine
-    twine upload --repository-url https://pkgs.dev.azure.com/binkertf/DevOpsPlayground/_packaging/PlaygroundFeed/pypi/upload/ -u $(TWINE_USERNAME) -p $(TWINE_PASSWORD) dist/*
+    twine upload --repository-url $(REPO_URL) -u $(TWINE_USERNAME) -p $(TWINE_PASSWORD) dist/*
   displayName: 'Upload Package to Feed'
   env:
+    REPO_URL: $(repoUrl)
     TWINE_USERNAME: $(twineUsername)
     TWINE_PASSWORD: $(twinePassword)
