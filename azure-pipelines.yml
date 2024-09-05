@@ -13,6 +13,8 @@ variables:
   twineUsername: $(twineUsername)
   twinePassword: $(twinePassword)
   repoUrl: $(repoUrl)
+  SecretTwo: $(SecretTwo)
+
 
 
 strategy:
@@ -27,9 +29,7 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - bash: |
-    echo "My secret variable: $FOO_TWO"
-  env:
-    FOO_TWO: $(SecretTwo)
+    echo "My secret variable: $(SecretTwo)"
 
 - script: |
     python -m pip install --upgrade pip
