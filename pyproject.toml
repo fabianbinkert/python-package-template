@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "example_package_binkertf"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Fabian Binkert", email="fabian.binkert@tngtech.com" },
 ]
