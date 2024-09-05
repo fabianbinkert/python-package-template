@@ -9,11 +9,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  secretTwo: $(SecretTwo)
-
-
-
 strategy:
   matrix:
     Python37:
@@ -26,7 +21,7 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - bash: |
-    echo "My secret variable: $(secretTwo)"
+    echo "My secret variable: $(SecretTwo)"
 
 - script: |
     python -m pip install --upgrade pip
